@@ -6,15 +6,22 @@
  *
  * This class was written as an early example for teaching Java with BlueJ.
  * 
- * @author  Michael Kšlling and David J. Barnes
- * @version 2016.02.29
+ * @author  Hugo Camacho
+ * @version 2024.09.10
+ * This is a web browser with a cursor about to minimize the page. The site is a social media page so the people are profiles.
  */
 public class Picture
 {
-    private Square wall;
     private Square window;
-    private Triangle roof;
-    private Circle sun;
+    private Square cursorBottom;
+    private Triangle cursorTop;
+    private Circle minimize;
+    private Circle close;
+    private Circle expand;
+    private Person profilePicOne;
+    private Person profilePicTwo;
+    private Square profilePicBgOne;
+    private Square profilePicBgTwo;
     private boolean drawn;
 
     /**
@@ -22,10 +29,17 @@ public class Picture
      */
     public Picture()
     {
-        wall = new Square();
         window = new Square();
-        roof = new Triangle();  
-        sun = new Circle();
+        cursorBottom = new Square();
+        profilePicBgOne = new Square();
+        profilePicBgTwo = new Square();
+        cursorTop = new Triangle();  
+        expand = new Circle();
+        minimize = new Circle();
+        close = new Circle();
+        profilePicOne = new Person();
+        profilePicTwo = new Person();
+        
         drawn = false;
     }
 
@@ -35,27 +49,67 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
-            wall.moveVertical(20);
-            wall.changeSize(120);
-            wall.makeVisible();
+            window.moveHorizontal(-250);
+            window.moveVertical(-120);
+            window.changeSize(400);
+            window.makeVisible();  
+            window.changeColor("blue");
             
-            window.changeColor("black");
-            window.moveHorizontal(-120);
-            window.moveVertical(40);
-            window.changeSize(40);
-            window.makeVisible();
+            cursorTop.changeSize(20, 40);
+            cursorTop.moveHorizontal(-70);
+            cursorTop.moveVertical(-90);
+            cursorTop.makeVisible();
+            cursorTop.changeColor("white");
+            
+            cursorBottom.changeColor("white");
+            cursorBottom.moveHorizontal(-180);
+            cursorBottom.moveVertical(-50);
+            cursorBottom.changeSize(20);
+            cursorBottom.makeVisible();
+            
+            profilePicBgOne.moveHorizontal(-215);
+            profilePicBgOne.moveVertical(0);
+            profilePicBgOne.changeSize(50);
+            profilePicBgOne.makeVisible();  
+            profilePicBgOne.changeColor("green");
+            
+            profilePicBgTwo.moveHorizontal(-215);
+            profilePicBgTwo.moveVertical(70);
+            profilePicBgTwo.changeSize(50);
+            profilePicBgTwo.makeVisible();  
+            profilePicBgTwo.changeColor("green");
+            
+            
+            
+            profilePicOne.changeSize(40, 40);
+            profilePicOne.makeVisible();
+            profilePicOne.moveHorizontal(-160);
+            profilePicOne.moveVertical(20);
+            
+            profilePicTwo.changeSize(40, 40);
+            profilePicTwo.makeVisible();
+            profilePicTwo.moveHorizontal(-160);
+            profilePicTwo.moveVertical(-50);
     
-            roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
-            roof.moveVertical(-60);
-            roof.makeVisible();
+            
+            
+            expand.changeColor("green");
+            expand.moveHorizontal(-70);
+            expand.moveVertical(-70);
+            expand.changeSize(20);
+            expand.makeVisible();
     
-            sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
-            sun.changeSize(80);
-            sun.makeVisible();
+            minimize.changeColor("yellow");
+            minimize.moveHorizontal(-100);
+            minimize.moveVertical(-70);
+            minimize.changeSize(20);
+            minimize.makeVisible();
+            
+            close.changeColor("red");
+            close.moveHorizontal(-130);
+            close.moveVertical(-70);
+            close.changeSize(20);
+            close.makeVisible();
             drawn = true;
         }
     }
@@ -65,10 +119,17 @@ public class Picture
      */
     public void setBlackAndWhite()
     {
-        wall.changeColor("black");
-        window.changeColor("white");
-        roof.changeColor("black");
-        sun.changeColor("black");
+        window.changeColor("black");
+        close.changeColor("white");
+        minimize.changeColor("white");
+        expand.changeColor("white");
+        cursorTop.changeColor("white");
+        cursorBottom.changeColor("white");
+        profilePicBgOne.changeColor("white");
+        profilePicBgTwo.changeColor("white");
+        profilePicOne.changeColor("black");
+        profilePicTwo.changeColor("black");
+             
     }
 
     /**
@@ -76,9 +137,15 @@ public class Picture
      */
     public void setColor()
     {
-        wall.changeColor("red");
-        window.changeColor("black");
-        roof.changeColor("green");
-        sun.changeColor("yellow");
+        window.changeColor("blue");
+        close.changeColor("red");
+        minimize.changeColor("yellow");
+        expand.changeColor("green");
+        cursorTop.changeColor("white");
+        cursorBottom.changeColor("white");
+        profilePicBgOne.changeColor("green");
+        profilePicBgTwo.changeColor("green");
+        profilePicOne.changeColor("black");
+        profilePicTwo.changeColor("black");
     }
 }
